@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
   BadRequestException,
   Injectable,
@@ -14,7 +15,7 @@ import { InjectModel } from '@nestjs/mongoose';
 export class PokemonService {
   constructor(
     @InjectModel(Pokemon.name)
-    private readonly pokemonModel: Model<Pokemon>,
+    private readonly pokemonModel: Model<Pokemon>
   ) {}
 
   async create(createPokemonDto: CreatePokemonDto) {
@@ -51,7 +52,7 @@ export class PokemonService {
 
     if (!pokemon)
       throw new NotFoundException(
-        `Pokemon with id, name or no "${term}" not found`,
+        `Pokemon with id, name or no "${term}" not found`
       );
 
     return pokemon;
@@ -85,12 +86,12 @@ export class PokemonService {
   private handleExceptions(error: any) {
     if (error.code === 11000) {
       throw new BadRequestException(
-        `Pokemon exixts in db ${JSON.stringify(error.keyValue)}`,
+        `Pokemon exists in db ${JSON.stringify(error.keyValue)}`
       );
     }
     console.log(error);
     throw new InternalServerErrorException(
-      `Can't create Pokemon - Check server logs`,
+      `Can't create Pokemon - Check server logs`
     );
   }
 }
