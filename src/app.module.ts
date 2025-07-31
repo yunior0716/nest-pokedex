@@ -33,7 +33,5 @@ import { JoiValidationSchema } from './config/joi.validation';
   ],
 })
 export class AppModule {
-  constructor() {
-    console.log(process.env);
-  }
+  constructor() {}
 }
