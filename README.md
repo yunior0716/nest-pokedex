@@ -39,3 +39,12 @@
 - NestJS
 - MongoDB
 - Docker
+
+## Production build
+
+1. Create `.env.prod` file from `.env.example`
+2. Fill the environment variables in the `.env.prod` file
+3. Create the production image
+   ```
+   docker compose --env-file .env.prod up --build -d
+   ```
