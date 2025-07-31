@@ -19,7 +19,17 @@
    docker compose up -d
    ```
 
-5. Seed the database
+5. Clone the environment file **.env.example .env** and rename to **.env**
+
+6. Fill the environment variables in the **.env** file
+
+7. Run the application
+
+   ```
+   yarn start:dev
+   ```
+
+8. Seed the database
    ```
    http://localhost:3000/api/seed
    ```
